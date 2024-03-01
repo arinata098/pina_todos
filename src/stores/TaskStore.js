@@ -7,5 +7,22 @@ export const useTaskStore = defineStore('taskStore', {
             {id: 2, title: "watery plant", isFaf: true},
         ],
         name: 'Bagus Arinata',
-    })
+    }),
+
+    getters: {
+        // fungsi untuk menmfilter taks favorite
+        favs() {
+            return this.tasks.filter(t => t.isFaf)
+        },
+        // ga ngerti fungsinya T_T
+        favCount() {
+            return this.tasks.reduce((p, c) => {
+                return c.isFaf ? p + 1 : p
+            }, 0)
+        },
+        // menghitung seluruh data yang berada pada state tasks
+        totalCount: (state) => {
+            return state.tasks.length
+        }
+    }
 })
