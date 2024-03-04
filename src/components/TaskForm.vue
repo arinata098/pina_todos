@@ -23,7 +23,7 @@ import { ref } from 'vue'
                     taskStore.addTask({
                         title: newTask.value,
                         isFav: false,
-                        id: Math.floor(Math.random() * 10000)
+                        id: Math.floor(Math.random() * 10000).toString()
                     })
                     newTask.value = ''
                 }
